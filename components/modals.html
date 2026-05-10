@@ -1,0 +1,75 @@
+<!-- ═══════════════════════════════════════════════
+     MODALS COMPONENT
+═══════════════════════════════════════════════ -->
+
+<!-- UPLOAD MODAL -->
+<div id="upload-modal" class="modal-overlay" onclick="closeUploadModal(event)">
+  <div class="glass rounded-2xl p-8 w-full max-w-md mx-4" onclick="event.stopPropagation()">
+    <div class="flex justify-between items-center mb-6">
+      <h3 class="font-display font-700 text-white text-xl">Subir y Cifrar Archivo</h3>
+      <button onclick="closeUploadModal()" class="text-slate-500 hover:text-white transition-colors text-xl">✕</button>
+    </div>
+
+    <!-- Drop zone -->
+    <div class="border-2 border-dashed border-vault-blue/30 rounded-xl p-10 text-center hover:border-vault-blue/60 transition-colors cursor-pointer mb-5" onclick="simulateUpload()">
+      <div class="text-4xl mb-3">📁</div>
+      <div class="text-white font-600 mb-1">Arrastra tu archivo aquí</div>
+      <div class="text-slate-500 text-sm">o haz clic para seleccionar</div>
+      <div class="text-xs text-slate-600 mt-3">PDF, DOCX, XLSX, JPG, PNG · Máx. 500 MB</div>
+    </div>
+
+    <!-- Encrypt options -->
+    <div class="space-y-3 mb-6">
+      <div class="flex items-center justify-between p-3 bg-navy-900 rounded-xl border border-slate-700/30">
+        <div>
+          <div class="text-sm text-white font-600">Cifrar con mi clave personal</div>
+          <div class="text-xs text-slate-500">Solo tú podrás descifrar este archivo</div>
+        </div>
+        <input type="radio" name="encrypt-type" checked class="accent-vault-blue" />
+      </div>
+      <div class="flex items-center justify-between p-3 bg-navy-900 rounded-xl border border-slate-700/30">
+        <div>
+          <div class="text-sm text-white font-600">Clave compartida del equipo</div>
+          <div class="text-xs text-slate-500">Accesible para los usuarios del grupo</div>
+        </div>
+        <input type="radio" name="encrypt-type" class="accent-vault-blue" />
+      </div>
+    </div>
+
+    <!-- Destination -->
+    <div class="mb-6">
+      <label class="text-xs text-slate-400 block mb-2">Carpeta destino</label>
+      <select class="vault-input">
+        <option>📁 Nóminas</option>
+        <option>📁 Contratos</option>
+        <option>📁 Clientes</option>
+        <option>📁 RGPD Docs</option>
+      </select>
+    </div>
+
+    <div id="upload-progress" class="hidden mb-5">
+      <div class="flex justify-between text-xs text-slate-400 mb-2">
+        <span>Cifrando y subiendo…</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="w-full bg-slate-800 rounded-full h-2">
+        <div id="progress-bar" class="h-2 rounded-full bg-gradient-to-r from-vault-blue to-vault-glow transition-all duration-300" style="width:0%"></div>
+      </div>
+      <div class="text-xs text-slate-600 mt-2 font-mono">AES-256-GCM · Cifrado local · Sin envío externo</div>
+    </div>
+
+    <button onclick="simulateUpload()" class="btn-upload w-full text-white font-display font-700 py-3.5 rounded-xl text-sm">
+      🔒 Cifrar y subir
+    </button>
+  </div>
+</div>
+
+<!-- CONTACT SUCCESS MODAL -->
+<div id="contact-modal" class="modal-overlay" onclick="closeContactModal(event)">
+  <div class="glass rounded-2xl p-10 w-full max-w-sm mx-4 text-center" onclick="event.stopPropagation()">
+    <div class="text-5xl mb-4">✅</div>
+    <h3 class="font-display font-700 text-white text-xl mb-2">¡Mensaje enviado!</h3>
+    <p class="text-slate-400 text-sm mb-6">Nos pondremos en contacto contigo en menos de 24 horas laborables. Gracias por tu interés en SecureVault.</p>
+    <button onclick="closeContactModal()" class="btn-glow w-full text-white font-display font-700 py-3 rounded-xl text-sm">Cerrar</button>
+  </div>
+</div>

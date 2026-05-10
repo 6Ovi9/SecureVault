@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SecureVault — Tu empresa. Tus datos. Tu servidor.</title>
+  
+  <!-- External CDN & Libraries -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind Configuration -->
+  <script src="css/tailwind-config.js"></script>
+  
+  <!-- Local Styles -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body class="min-h-screen">
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 1 — LANDING
+═══════════════════════════════════════════════ -->
+<div id="page-landing" class="page active">
+
+  <!-- NAVBAR -->
+  <nav class="navbar fixed top-0 left-0 right-0 z-40 h-16 flex items-center px-6 md:px-12 justify-between">
+    <div class="flex items-center gap-2.5 cursor-pointer hover:opacity-80 transition-opacity" onclick="showPage('landing')">
+      <div class="relative flex items-center justify-center w-8 h-8">
+        <svg viewBox="0 0 32 32" fill="none" class="w-8 h-8">
+          <rect width="32" height="32" rx="8" fill="#1d4ed8" fill-opacity="0.3"/>
+          <path d="M16 5L7 9v7c0 5.2 3.8 10 9 11 5.2-1 9-5.8 9-11V9L16 5z" fill="#2563eb" fill-opacity="0.7" stroke="#60a5fa" stroke-width="1.5"/>
+          <rect x="13" y="14" width="6" height="5" rx="1" fill="#60a5fa"/>
+          <circle cx="16" cy="13" r="2.5" stroke="#60a5fa" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <span class="font-display font-700 text-white text-lg tracking-tight">Secure<span class="text-vault-blue">Vault</span></span>
+    </div>
+
+    <div class="hidden md:flex items-center gap-8 text-sm text-slate-400 font-medium">
+      <a href="#features" class="hover:text-white transition-colors">Qué ofrecemos</a>
+      <a href="#how" class="hover:text-white transition-colors">Cómo funciona</a>
+      <a href="#precios" class="hover:text-white transition-colors">Precios</a>
+      <a href="#rgpd" class="hover:text-white transition-colors">RGPD</a>
+      <a href="#contact" class="hover:text-white transition-colors">Contacto</a>
+    </div>
+
+    <button onclick="showPage('login')" class="btn-glow text-white text-sm font-semibold font-display px-5 py-2.5 rounded-lg">
+      Iniciar sesión →
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-20 pb-10 relative overflow-hidden">
+    <!-- Depth orbs -->
+    <div class="hero-orb" id="orb1" style="width:500px;height:500px;background:rgba(37,99,235,0.12);top:-100px;left:-150px;"></div>
+    <div class="hero-orb" id="orb2" style="width:350px;height:350px;background:rgba(34,197,94,0.07);bottom:50px;right:-100px;"></div>
+    <div class="anim-fade-up">
+      <span class="badge border border-vault-blue/30 text-vault-glow bg-vault-blue/10 mb-5 inline-block">
+        🔒 Cumplimiento RGPD · Cifrado end-to-end · On-premise
+      </span>
+    </div>
+
+    <h1 class="font-display font-800 text-5xl md:text-7xl leading-tight max-w-4xl anim-fade-up delay-100">
+      Tus datos.<br/>
+      <span class="shimmer-text">Tu servidor.</span><br/>
+      Tu empresa.
+    </h1>
+
+    <p class="mt-6 text-slate-400 text-lg md:text-xl max-w-2xl leading-relaxed anim-fade-up delay-200">
+      SecureVault instala un servidor cifrado <em>en tus propias instalaciones</em>. Ni nosotros, ni ningún tercero, puede leer tus archivos. Sin cloud. Sin dependencias. Sin compromisos.
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 mt-10 anim-fade-up delay-300">
+      <button onclick="showPage('login')" class="btn-glow text-white font-display font-700 px-8 py-4 rounded-xl text-base">
+        Acceder a mi bóveda
+      </button>
+      <a href="#contact" class="border border-slate-600 hover:border-vault-blue/50 text-slate-300 hover:text-white font-display font-600 px-8 py-4 rounded-xl text-base transition-all">
+        Solicitar demo
+      </a>
+    </div>
+
+    <!-- Trust badges -->
+    <div class="flex flex-wrap justify-center gap-6 mt-16 text-xs text-slate-500 anim-fade-up delay-400">
+      <div class="flex items-center gap-2">
+        <span class="text-vault-green">✓</span> ISO 27001 compatible
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-vault-green">✓</span> 100% on-premise
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-vault-green">✓</span> Cifrado AES-256
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-vault-green">✓</span> Sin acceso del proveedor
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="text-vault-green">✓</span> Soporte 24/7
+      </div>
+    </div>
+
+    <!-- Decorative server visual -->
+    <div class="mt-16 anim-fade-up delay-500 w-full max-w-3xl">
+      <div class="glass rounded-2xl p-1 shadow-2xl shadow-blue-900/30">
+        <div class="bg-navy-800 rounded-xl overflow-hidden">
+          <!-- Fake dashboard preview inside hero -->
+          <div class="flex">
+            <div class="w-44 bg-navy-900 p-3 hidden md:block border-r border-slate-800/50">
+              <div class="text-xs font-mono text-vault-glow mb-3 opacity-70">NAVEGACIÓN</div>
+              <div class="space-y-1">
+                <div class="text-xs bg-vault-blue/15 text-vault-glow rounded-md px-2 py-1.5 border border-vault-blue/20">🗄️ Mi Bóveda</div>
+                <div class="text-xs text-slate-500 px-2 py-1.5">📋 Cumplimiento RGPD</div>
+                <div class="text-xs text-slate-500 px-2 py-1.5">🖥️ Estado del Servidor</div>
+              </div>
+            </div>
+            <div class="flex-1 p-4">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-xs font-mono text-slate-400">Mi Bóveda / Documentos</span>
+                <span class="badge bg-vault-green/15 text-vault-green border border-vault-green/25">🔒 Todo cifrado</span>
+              </div>
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-3 bg-navy-900/60 rounded-lg px-3 py-2 text-xs">
+                  <span class="text-vault-green">🔒</span>
+                  <span class="text-slate-300">Nóminas_Junio2025.pdf</span>
+                  <span class="ml-auto text-slate-600 font-mono">AES-256</span>
+                </div>
+                <div class="flex items-center gap-3 bg-navy-900/60 rounded-lg px-3 py-2 text-xs">
+                  <span class="text-vault-green">🔒</span>
+                  <span class="text-slate-300">Contrato_ClienteXYZ.docx</span>
+                  <span class="ml-auto text-slate-600 font-mono">AES-256</span>
+                </div>
+                <div class="flex items-center gap-3 bg-navy-900/60 rounded-lg px-3 py-2 text-xs">
+                  <span class="text-vault-green">🔒</span>
+                  <span class="text-slate-300">RGPD_Política_Interna.pdf</span>
+                  <span class="ml-auto text-slate-600 font-mono">AES-256</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="py-24 px-6 max-w-6xl mx-auto">
+    <div class="text-center mb-16">
+      <h2 class="font-display font-700 text-4xl md:text-5xl text-white" data-reveal="up">Qué ofrecemos</h2>
+      <span class="reveal-line mt-4 mx-auto" style="max-width:60px;" data-reveal-delay="200"></span>
+      <p class="text-slate-400 mt-5 text-lg max-w-xl mx-auto" data-reveal="up" data-reveal-delay="200">Un sistema completo llave en mano. Sin conocimientos técnicos necesarios por tu parte.</p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="feature-card rounded-2xl p-7 backdrop-blur-sm" data-reveal="up" data-reveal-delay="100">
+        <div class="w-12 h-12 rounded-xl bg-vault-blue/15 border border-vault-blue/25 flex items-center justify-center text-2xl mb-5">🖥️</div>
+        <h3 class="font-display font-700 text-white text-xl mb-3">Servidor físico en tus instalaciones</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Suministramos, instalamos y configuramos el hardware directamente en tu empresa. Tus datos nunca abandonan tu edificio.</p>
+        <ul class="mt-4 space-y-2 text-xs text-slate-500">
+          <li class="flex items-center gap-2"><span class="text-vault-green">✓</span> Equipo dedicado y exclusivo</li>
+          <li class="flex items-center gap-2"><span class="text-vault-green">✓</span> Instalación profesional incluida</li>
+          <li class="flex items-center gap-2"><span class="text-vault-green">✓</span> Configuración de red aislada</li>
+        </ul>
+      </div>
+      <!-- Card 2 -->
+      <div class="feature-card rounded-2xl p-7 backdrop-blur-sm" style="border-color: rgba(34,197,94,0.2);" data-reveal="up" data-reveal-delay="250">
+        <div class="w-12 h-12 rounded-xl bg-vault-green/15 border border-vault-green/25 flex items-center justify-center text-2xl mb-5">🔐</div>
+        <h3 class="font-display font-700 text-white text-xl mb-3">Cifrado por usuario, clave única</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Cada usuario dispone de su propia clave de cifrado. Ni SecureVault ni el administrador del sistema pueden acceder a tus archivos.</p>
+        <ul class="mt-4 space-y-2 text-xs text-slate-500">
+          <li class="flex items-center gap-2"><span class="text-vault-green">✓</span> Cifrado AES-256 en reposo</li>
+          <li class="flex items-center gap-2"><span class="text-vault-green">✓</span> Zero-knowledge architecture</li>
+          <li class="flex items-center gap-2"><span class="text-vault-green">✓</span> Claves gestionadas por el usuario</li>
+        </ul>
+      </div>
+      <!-- Card 3 -->
+      <div class="feature-card rounded-2xl p-7 backdrop-blur-sm" data-reveal="up" data-reveal-delay="400">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/15 border border-amber-500/25 flex items-center justify-center text-2xl mb-5">📋</div>
+        <h3 class="font-display font-700 text-white text-xl mb-3">Cumplimiento RGPD garantizado</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Panel de cumplimiento normativo integrado. Registros de acceso, auditoría y documentación lista para inspecciones.</p>
+        <ul class="mt-4 space-y-2 text-xs text-slate-500">
+          <li class="flex items-center gap-2"><span class="text-vault-green">✓</span> Registro de accesos trazable</li>
+          <li class="flex items-center gap-2"><span class="text-vault-green">✓</span> Exportación de auditorías</li>
+          <li class="flex items-center gap-2"><span class="text-vault-green">✓</span> Informes de cumplimiento</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="font-display font-700 text-4xl md:text-5xl text-white" data-reveal="up">Cómo funciona</h2>
+        <span class="reveal-line mt-4 mx-auto" style="max-width:60px;" data-reveal-delay="200"></span>
+        <p class="text-slate-400 mt-5 text-lg" data-reveal="up" data-reveal-delay="200">En tres pasos, tu empresa tiene protección nivel enterprise.</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8 relative">
+        <div class="hidden md:block absolute top-8 left-1/6 right-1/6 h-px bg-gradient-to-r from-transparent via-vault-blue/30 to-transparent" style="left:20%;right:20%;"></div>
+
+        <div class="text-center" data-reveal="left" data-reveal-delay="100">
+          <div class="w-16 h-16 rounded-full bg-vault-blue/15 border border-vault-blue/30 flex items-center justify-center text-2xl mx-auto mb-5 relative">
+            📦
+            <span class="absolute -top-1 -right-1 w-6 h-6 bg-vault-blue rounded-full text-xs font-display font-700 flex items-center justify-center text-white">1</span>
+          </div>
+          <h3 class="font-display font-600 text-white text-lg mb-2">Firma el contrato</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Sin inversión inicial en stock. Compramos el equipo una vez firmado, sin inmovilizar capital.</p>
+        </div>
+
+        <div class="text-center" data-reveal="up" data-reveal-delay="250">
+          <div class="w-16 h-16 rounded-full bg-vault-blue/15 border border-vault-blue/30 flex items-center justify-center text-2xl mx-auto mb-5 relative">
+            🔧
+            <span class="absolute -top-1 -right-1 w-6 h-6 bg-vault-blue rounded-full text-xs font-display font-700 flex items-center justify-center text-white">2</span>
+          </div>
+          <h3 class="font-display font-600 text-white text-lg mb-2">Instalación en 48h</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Nuestro equipo técnico acude a tus instalaciones y deja el sistema listo. Sin que tú toques nada.</p>
+        </div>
+
+        <div class="text-center" data-reveal="right" data-reveal-delay="400">
+          <div class="w-16 h-16 rounded-full bg-vault-green/15 border border-vault-green/30 flex items-center justify-center text-2xl mx-auto mb-5 relative">
+            ✅
+            <span class="absolute -top-1 -right-1 w-6 h-6 bg-vault-green rounded-full text-xs font-display font-700 flex items-center justify-center text-white">3</span>
+          </div>
+          <h3 class="font-display font-600 text-white text-lg mb-2">Empieza a operar</h3>
+          <p class="text-slate-400 text-sm leading-relaxed">Interfaz tan sencilla como Google Drive. Tu equipo lo usará desde el primer día sin formación.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING SECTION -->
+  <section id="precios" class="py-24 px-6">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16" data-reveal="scale">
+        <h2 class="font-display font-700 text-4xl md:text-5xl text-white mb-4">Planes de Precios</h2>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto">Introduce tus datos para ver los precios personalizados según tu zona.</p>
+      </div>
+
+      <!-- PRICING FORM -->
+      <div class="max-w-2xl mx-auto mb-16">
+        <div class="glass rounded-3xl p-10 md:p-14" data-reveal="scale">
+          <form id="pricing-form" onchange="updatePricing()" style="display: grid; gap: 1rem;">
+            <div class="grid md:grid-cols-2 gap-4" data-reveal="up" data-reveal-delay="100">
+              <input 
+                type="text" 
+                id="pricing-name"
+                placeholder="Nombre" 
+                class="vault-input rounded-lg px-4 py-3 bg-slate-900/50 border border-slate-700/50 text-white placeholder-slate-500 focus:outline-none focus:border-vault-green/50 transition-all"
+                required
+              />
+              <input 
+                type="email" 
+                id="pricing-email"
+                placeholder="Email" 
+                class="vault-input rounded-lg px-4 py-3 bg-slate-900/50 border border-slate-700/50 text-white placeholder-slate-500 focus:outline-none focus:border-vault-green/50 transition-all"
+                required
+              />
+            </div>
+
+            <div data-reveal="up" data-reveal-delay="200">
+              <input 
+                type="text" 
+                id="pricing-address"
+                placeholder="Dirección" 
+                class="w-full vault-input rounded-lg px-4 py-3 bg-slate-900/50 border border-slate-700/50 text-white placeholder-slate-500 focus:outline-none focus:border-vault-green/50 transition-all"
+                required
+              />
+            </div>
+
+            <div data-reveal="up" data-reveal-delay="300">
+              <select 
+                id="pricing-zone"
+                class="w-full vault-input rounded-lg px-4 py-3 bg-slate-900/50 border border-slate-700/50 text-white focus:outline-none focus:border-vault-green/50 transition-all appearance-none cursor-pointer"
+                style="background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%2200dc82%22 stroke-width=%222%22%3e%3cpolyline points=%226 9 12 15 18 9%22%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 0.75rem center; background-size: 1.5em 1.5em; padding-right: 2.5rem;"
+                required
+              >
+                <option value="">Selecciona tu zona</option>
+                <option value="local">Alcalá de Henares (Local) - €75 envío</option>
+                <option value="metro">Zona Metropolitana - €150 envío</option>
+                <option value="madrid">Comunidad de Madrid - €300 envío</option>
+                <option value="nacional">Fuera de Madrid - €500 envío</option>
+              </select>
+            </div>
+
+            <p class="text-center text-slate-500 text-xs mt-4">Los precios incluyen hardware, instalación y coste de envío según tu zona</p>
+          </form>
+        </div>
+      </div>
+
+      <!-- PRICING CARDS (Hidden by default) -->
+      <div id="pricing-cards" style="display: none;">
+        <div class="grid md:grid-cols-4 gap-6">
+          <!-- Solo Plan -->
+          <div class="glass rounded-2xl p-8 border-2 border-slate-700/50 hover:border-vault-green/50 transition-all duration-300 group" data-reveal="up" data-reveal-delay="100">
+            <h3 class="font-display font-600 text-white text-xl mb-2">Solo</h3>
+            <p class="text-slate-400 text-sm mb-6">Pequeñas empresas</p>
+            <div class="mb-6">
+              <div class="text-2xl text-white font-display font-700" id="solo-price">€2.575</div>
+              <p class="text-slate-500 text-xs">Total instalación</p>
+              <div class="text-xs text-slate-600 mt-2">
+                Base: €2.500 + Envío: <span id="solo-shipping">€75</span>
+              </div>
+              <div class="text-lg text-vault-green font-600 mt-3">€199<span class="text-slate-400 text-sm">/mes</span></div>
+              <p class="text-slate-500 text-xs">Suscripción</p>
+            </div>
+            <button onclick="openContactModal()" class="w-full bg-vault-green/20 hover:bg-vault-green/40 border border-vault-green/50 text-white rounded-lg py-2 font-medium transition-all text-sm">Solicitar</button>
+            <ul class="mt-6 space-y-3 text-sm text-slate-400">
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>Hasta 2 instalaciones</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>10 GB de almacenamiento</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>Encriptación básica</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>Soporte por email</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Startup Plan -->
+          <div class="glass rounded-2xl p-8 border-2 border-vault-green/50 hover:border-vault-green transition-all duration-300 group relative" data-reveal="up" data-reveal-delay="200">
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-vault-green text-slate-900 px-4 py-1 rounded-full text-xs font-bold">POPULAR</div>
+            <h3 class="font-display font-600 text-white text-xl mb-2">Startup</h3>
+            <p class="text-slate-400 text-sm mb-6">Empresas en crecimiento</p>
+            <div class="mb-6">
+              <div class="text-2xl text-white font-display font-700" id="startup-price">€5.075</div>
+              <p class="text-slate-500 text-xs">Total instalación</p>
+              <div class="text-xs text-slate-600 mt-2">
+                Base: €5.000 + Envío: <span id="startup-shipping">€75</span>
+              </div>
+              <div class="text-lg text-vault-green font-600 mt-3">€399<span class="text-slate-400 text-sm">/mes</span></div>
+              <p class="text-slate-500 text-xs">Suscripción</p>
+            </div>
+            <button onclick="openContactModal()" class="w-full bg-vault-green hover:bg-vault-green/90 text-slate-900 rounded-lg py-2 font-medium transition-all text-sm font-display font-600">Solicitar</button>
+            <ul class="mt-6 space-y-3 text-sm text-slate-400">
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>Hasta 5 instalaciones</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>50 GB de almacenamiento</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>Encriptación avanzada</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>Soporte 24/5</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Professional Plan -->
+          <div class="glass rounded-2xl p-8 border-2 border-slate-700/50 hover:border-vault-green/50 transition-all duration-300 group" data-reveal="up" data-reveal-delay="300">
+            <h3 class="font-display font-600 text-white text-xl mb-2">Professional</h3>
+            <p class="text-slate-400 text-sm mb-6">Empresas establecidas</p>
+            <div class="mb-6">
+              <div class="text-2xl text-white font-display font-700" id="pro-price">€10.075</div>
+              <p class="text-slate-500 text-xs">Total instalación</p>
+              <div class="text-xs text-slate-600 mt-2">
+                Base: €10.000 + Envío: <span id="pro-shipping">€75</span>
+              </div>
+              <div class="text-lg text-vault-green font-600 mt-3">€699<span class="text-slate-400 text-sm">/mes</span></div>
+              <p class="text-slate-500 text-xs">Suscripción</p>
+            </div>
+            <button onclick="openContactModal()" class="w-full bg-vault-green/20 hover:bg-vault-green/40 border border-vault-green/50 text-white rounded-lg py-2 font-medium transition-all text-sm">Solicitar</button>
+            <ul class="mt-6 space-y-3 text-sm text-slate-400">
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>Hasta 20 instalaciones</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>500 GB de almacenamiento</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>Encriptación enterprise</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>Soporte 24/7 prioritario</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Enterprise Plan -->
+          <div class="glass rounded-2xl p-8 border-2 border-slate-700/50 hover:border-vault-green/50 transition-all duration-300 group" data-reveal="up" data-reveal-delay="400">
+            <h3 class="font-display font-600 text-white text-xl mb-2">Enterprise</h3>
+            <p class="text-slate-400 text-sm mb-6">Grandes organizaciones</p>
+            <div class="mb-6">
+              <div class="text-xl text-white font-display font-700">Personalizado</div>
+              <p class="text-slate-500 text-xs">Según necesidades</p>
+              <div class="text-sm text-slate-400 mt-4">Infraestructura personalizada, SLA garantizado, integraciones custom</div>
+            </div>
+            <button onclick="document.getElementById('custom-section').scrollIntoView({ behavior: 'smooth' })" class="w-full bg-vault-green/20 hover:bg-vault-green/40 border border-vault-green/50 text-white rounded-lg py-2 font-medium transition-all text-sm">Contactar</button>
+            <ul class="mt-6 space-y-3 text-sm text-slate-400">
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>Instalaciones ilimitadas</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>Almacenamiento ilimitado</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>Seguridad personalizada</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-vault-green mt-1">✓</span>
+                <span>Dedicated account manager</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM ENTERPRISE SECTION -->
+  <section id="custom-section" class="py-24 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="glass rounded-3xl p-10 md:p-14" data-reveal="scale">
+        <div class="text-center mb-10" data-reveal="up">
+          <h2 class="font-display font-700 text-3xl md:text-4xl text-white mb-3">¿Ningún plan se ajusta?</h2>
+          <p class="text-slate-400">Cuéntanos tus necesidades específicas y crearemos una solución personalizada.</p>
+        </div>
+
+        <form class="space-y-5" onsubmit="handleCustomInquiry(event)">
+          <div data-reveal="up" data-reveal-delay="100">
+            <input 
+              type="text" 
+              placeholder="Nombre de la empresa" 
+              class="w-full vault-input rounded-lg px-4 py-3 bg-slate-900/50 border border-slate-700/50 text-white placeholder-slate-500 focus:outline-none focus:border-vault-green/50 transition-all"
+              required
+            />
+          </div>
+
+          <div data-reveal="up" data-reveal-delay="200">
+            <textarea 
+              placeholder="Cuéntanos qué necesitas..." 
+              rows="4"
+              class="w-full vault-input rounded-lg px-4 py-3 bg-slate-900/50 border border-slate-700/50 text-white placeholder-slate-500 focus:outline-none focus:border-vault-green/50 transition-all resize-none"
+              required
+            ></textarea>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div data-reveal="up" data-reveal-delay="300">
+              <input 
+                type="email" 
+                placeholder="Email" 
+                class="w-full vault-input rounded-lg px-4 py-3 bg-slate-900/50 border border-slate-700/50 text-white placeholder-slate-500 focus:outline-none focus:border-vault-green/50 transition-all"
+                required
+              />
+            </div>
+            <div data-reveal="up" data-reveal-delay="400">
+              <input 
+                type="tel" 
+                placeholder="+34 XXX XXX XXX" 
+                class="w-full vault-input rounded-lg px-4 py-3 bg-slate-900/50 border border-slate-700/50 text-white placeholder-slate-500 focus:outline-none focus:border-vault-green/50 transition-all"
+              />
+            </div>
+          </div>
+
+          <button 
+            type="submit" 
+            class="w-full btn-glow bg-vault-green hover:bg-vault-green/90 text-slate-900 rounded-lg py-3 font-display font-600 transition-all mt-6"
+          >
+            Solicitar Propuesta
+          </button>
+        </form>
+
+        <p class="text-center text-slate-500 text-xs mt-6">Responderemos a tu solicitud en menos de 24 horas</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- RGPD SECTION -->
+  <section id="rgpd" class="py-24 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="glass rounded-3xl p-10 md:p-14 grid md:grid-cols-2 gap-10 items-center" data-reveal="scale">
+        <div data-reveal="left" data-reveal-delay="200">
+          <span class="badge bg-amber-500/10 text-amber-400 border border-amber-500/20 mb-4 inline-block">RGPD · Reglamento UE 2016/679</span>
+          <h2 class="font-display font-700 text-3xl md:text-4xl text-white mb-5">El RGPD no es opcional. SecureVault te ayuda a cumplirlo.</h2>
+          <p class="text-slate-400 leading-relaxed mb-6">Las PYMEs que incumplen el RGPD se enfrentan a multas de hasta 20 millones de euros o el 4% de la facturación global. Con SecureVault, el cumplimiento viene de serie.</p>
+          <div class="space-y-3">
+            <div class="flex items-start gap-3">
+              <span class="text-vault-green mt-0.5">🛡️</span>
+              <div>
+                <div class="text-white text-sm font-600">Derecho al olvido automatizado</div>
+                <div class="text-slate-500 text-xs mt-0.5">Elimina datos de usuario con un clic y genera el acta de borrado.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-vault-green mt-0.5">📑</span>
+              <div>
+                <div class="text-white text-sm font-600">Registro de actividades de tratamiento</div>
+                <div class="text-slate-500 text-xs mt-0.5">Documentación lista para mostrar al delegado de protección de datos.</div>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-vault-green mt-0.5">🔍</span>
+              <div>
+                <div class="text-white text-sm font-600">Auditoría de accesos completa</div>
+                <div class="text-slate-500 text-xs mt-0.5">Quién accedió, cuándo y desde dónde. Todo registrado y exportable.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-3" data-reveal="right" data-reveal-delay="300">
+          <div class="bg-navy-900 rounded-xl p-4 border border-slate-700/50">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-mono text-slate-500">ESTADO DE CUMPLIMIENTO</span>
+              <span class="badge bg-vault-green/15 text-vault-green border border-vault-green/25">CONFORME</span>
+            </div>
+            <div class="space-y-2 mt-3">
+              <div class="flex justify-between text-xs"><span class="text-slate-400">Cifrado en reposo</span><span class="text-vault-green">✓ Activo</span></div>
+              <div class="flex justify-between text-xs"><span class="text-slate-400">Registro de accesos</span><span class="text-vault-green">✓ Activo</span></div>
+              <div class="flex justify-between text-xs"><span class="text-slate-400">Política de retención</span><span class="text-vault-green">✓ Configurada</span></div>
+              <div class="flex justify-between text-xs"><span class="text-slate-400">Backup cifrado</span><span class="text-vault-green">✓ Diario</span></div>
+              <div class="flex justify-between text-xs"><span class="text-slate-400">Consentimientos</span><span class="text-amber-400">⚠ Revisar 2</span></div>
+            </div>
+          </div>
+          <div class="bg-navy-900 rounded-xl p-4 border border-slate-700/50">
+            <div class="text-xs font-mono text-slate-500 mb-2">ÚLTIMA AUDITORÍA</div>
+            <div class="text-white text-sm font-600">02 May 2025 — 09:14</div>
+            <div class="text-slate-400 text-xs mt-1">0 incidencias críticas detectadas</div>
+            <button class="mt-3 text-xs text-vault-blue hover:underline">Descargar informe PDF →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="font-display font-700 text-3xl text-white mb-10" data-reveal="up">Confianza de profesionales españoles</h2>
+      <div class="flex flex-wrap justify-center gap-4">
+        <div class="glass rounded-xl px-6 py-4 text-sm text-slate-300 anim-fade-up" style="animation-delay: 0.1s;">⚖️ Despachos de abogados</div>
+        <div class="glass rounded-xl px-6 py-4 text-sm text-slate-300 anim-fade-up" style="animation-delay: 0.2s;">🏥 Clínicas y hospitales</div>
+        <div class="glass rounded-xl px-6 py-4 text-sm text-slate-300 anim-fade-up" style="animation-delay: 0.3s;">📊 Gestorías y asesorías</div>
+        <div class="glass rounded-xl px-6 py-4 text-sm text-slate-300 anim-fade-up" style="animation-delay: 0.4s;">🏗️ Estudios de arquitectura</div>
+        <div class="glass rounded-xl px-6 py-4 text-sm text-slate-300 anim-fade-up" style="animation-delay: 0.5s;">🔍 Notarías</div>
+        <div class="glass rounded-xl px-6 py-4 text-sm text-slate-300 anim-fade-up" style="animation-delay: 0.6s;">🏢 PYMEs con datos sensibles</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-24 px-6">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="font-display font-700 text-4xl text-white" data-reveal="up">Solicita tu demostración</h2>
+        <span class="reveal-line mt-4 mx-auto" style="max-width:60px;" data-reveal-delay="200"></span>
+        <p class="text-slate-400 mt-5" data-reveal="up" data-reveal-delay="200">Sin compromiso. Conoce cómo SecureVault protege los datos de tu empresa.</p>
+      </div>
+      <div class="glass rounded-2xl p-8 md:p-10" data-reveal="up" data-reveal-delay="100">
+        <div class="grid md:grid-cols-2 gap-4 mb-4">
+          <div>
+            <label class="text-xs text-slate-400 block mb-2 font-medium">Nombre y empresa</label>
+            <input class="vault-input" type="text" placeholder="Ej: Ana Martínez · Despacho Martínez & Asociados" />
+          </div>
+          <div>
+            <label class="text-xs text-slate-400 block mb-2 font-medium">Email empresarial</label>
+            <input class="vault-input" type="email" placeholder="contacto@miempresa.es" />
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="text-xs text-slate-400 block mb-2 font-medium">Número de empleados</label>
+          <select class="vault-input appearance-none">
+            <option value="" disabled selected>Selecciona un rango…</option>
+            <option>Autónomo (1 persona)</option>
+            <option>Pequeña (2-10 empleados)</option>
+            <option>Mediana (11-50 empleados)</option>
+            <option>Grande (51-200 empleados)</option>
+            <option>Empresa (200+ empleados)</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="text-xs text-slate-400 block mb-2 font-medium">Sector profesional</label>
+          <select class="vault-input appearance-none">
+            <option value="" disabled selected>¿A qué sector pertenece tu empresa?</option>
+            <option>Despacho de Abogados</option>
+            <option>Consultoría / Asesoría Empresarial</option>
+            <option>Clínica / Centro Médico</option>
+            <option>Ingeniería / Arquitectura</option>
+            <option>Gestoría / Asesoramiento Fiscal</option>
+            <option>Notaría</option>
+            <option>Otro con datos sensibles</option>
+          </select>
+        </div>
+        <div class="mb-6">
+          <label class="text-xs text-slate-400 block mb-2 font-medium">¿Qué te preocupa?</label>
+          <textarea class="vault-input" rows="4" placeholder="Cuéntanos tu situación: tipo de datos, preocupaciones sobre RGPD, volumen de información a proteger…"></textarea>
+        </div>
+        <button onclick="showContactSuccess()" class="btn-glow w-full text-white font-display font-700 py-4 rounded-xl text-base">
+          Solicitar demostración gratuita
+        </button>
+        <p class="text-center text-xs text-slate-600 mt-4">Responderemos en menos de 24 horas laborables. Tus datos serán tratados según RGPD.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800/50 py-12 px-6">
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+      <div class="flex items-center gap-2.5">
+        <div class="w-7 h-7 rounded-lg bg-vault-blue/20 border border-vault-blue/30 flex items-center justify-center text-sm">🔒</div>
+        <span class="font-display font-700 text-white">Secure<span class="text-vault-blue">Vault</span></span>
+      </div>
+      <div class="text-xs text-slate-600 text-center">
+        © 2025 SecureVault. Almacenamiento seguro on-premise para PYMEs españolas.<br/>
+        <a href="#" class="hover:text-slate-400 transition">Aviso Legal</a> · <a href="#" class="hover:text-slate-400 transition">Política de Privacidad</a> · <a href="#" class="hover:text-slate-400 transition">Cookies</a>
+      </div>
+      <div class="text-xs text-slate-600 text-center">
+        📧 hola@securevault.es<br/>
+        📞 +34 91 234 5678
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 2 — LOGIN
+═══════════════════════════════════════════════ -->
+<div id="page-login" class="page-flex min-h-screen items-center justify-center px-6 py-16 flex-col">
+
+  <!-- Back -->
+  <button onclick="showPage('landing')" class="fixed top-6 left-6 text-slate-500 hover:text-slate-300 text-sm flex items-center gap-2 transition-colors z-10">
+    ← Volver
+  </button>
+
+  <div class="w-full max-w-sm">
+    <!-- Logo -->
+    <div class="text-center mb-10 anim-fade-up">
+      <div class="w-16 h-16 rounded-2xl bg-navy-800 border border-vault-blue/25 flex items-center justify-center mx-auto mb-4 shadow-lg shadow-blue-900/30">
+        <svg viewBox="0 0 32 32" fill="none" class="w-10 h-10">
+          <path d="M16 3L5 8v9c0 6.5 4.8 12.5 11 14 6.2-1.5 11-7.5 11-14V8L16 3z" fill="#1d4ed8" fill-opacity="0.5" stroke="#60a5fa" stroke-width="1.5"/>
+          <rect x="12" y="15" width="8" height="7" rx="1.5" fill="#60a5fa"/>
+          <circle cx="16" cy="14" r="3" stroke="#60a5fa" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <h1 class="font-display font-700 text-2xl text-white">Accede a tu bóveda</h1>
+      <p class="text-slate-500 text-sm mt-1">Autenticación segura · Conexión local cifrada</p>
+    </div>
+
+    <!-- Server indicator -->
+    <div class="glass rounded-xl p-3.5 mb-6 flex items-center gap-3 anim-fade-up delay-100">
+      <div class="relative flex items-center justify-center">
+        <div class="status-dot"></div>
+      </div>
+      <div>
+        <div class="text-xs font-600 text-white">Servidor local detectado</div>
+        <div class="text-xs text-slate-500 font-mono">192.168.1.100 · sv-empresa-01</div>
+      </div>
+      <span class="ml-auto badge bg-vault-green/10 text-vault-green border border-vault-green/20">EN LÍNEA</span>
+    </div>
+
+    <!-- Form -->
+    <div class="glass rounded-2xl p-7 anim-fade-up delay-200">
+      <div class="mb-4">
+        <label class="text-xs text-slate-400 block mb-2 font-medium tracking-wide uppercase">Usuario</label>
+        <input class="vault-input" type="text" placeholder="tu@empresa.com" value="admin@empresa.com" />
+      </div>
+      <div class="mb-2">
+        <label class="text-xs text-slate-400 block mb-2 font-medium tracking-wide uppercase">Contraseña</label>
+        <div class="relative">
+          <input class="vault-input pr-10" id="pwd-input" type="password" placeholder="••••••••" value="secreto123" />
+          <button onclick="togglePwd()" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition-colors text-sm">
+            👁
+          </button>
+        </div>
+      </div>
+      <div class="flex justify-between items-center mb-6 mt-2">
+        <label class="flex items-center gap-2 text-xs text-slate-500 cursor-pointer">
+          <input type="checkbox" checked class="accent-vault-blue" /> Recordar sesión
+        </label>
+        <button class="text-xs text-vault-blue hover:underline">¿Olvidaste la clave?</button>
+      </div>
+
+      <button onclick="showPage('dashboard')" class="btn-glow w-full text-white font-display font-700 py-3.5 rounded-xl text-sm">
+        🔓 Entrar a SecureVault
+      </button>
+
+      <div class="mt-5 p-3 rounded-lg bg-navy-900/50 border border-slate-700/30">
+        <div class="text-xs text-slate-500 text-center">
+          🔒 Conexión cifrada TLS 1.3 · Sin envío de datos externos<br/>
+          <span class="font-mono text-slate-600">AES-256 · RSA-4096</span>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-xs text-slate-600 mt-6 anim-fade-up delay-300">
+      Acceso exclusivo desde la red local de tu empresa.<br/>
+      ¿Problemas de acceso? Contacta a soporte: <span class="text-slate-400">+34 91 234 5678</span>
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     PAGE 3 — DASHBOARD
+═══════════════════════════════════════════════ -->
+<div id="page-dashboard" class="page-flex min-h-screen">
+
+  <!-- SIDEBAR -->
+  <aside id="sidebar" class="bg-navy-900 border-r border-slate-800/50 flex flex-col py-6 px-3">
+    <!-- Logo -->
+    <div class="flex items-center gap-2.5 px-3 mb-8 cursor-pointer hover:opacity-80 transition-opacity" onclick="showPage('landing')">
+      <div class="w-8 h-8 rounded-lg bg-vault-blue/20 border border-vault-blue/30 flex items-center justify-center text-sm">🔒</div>
+      <span class="font-display font-700 text-white text-sm tracking-tight">Secure<span class="text-vault-blue">Vault</span></span>
+    </div>
+
+    <!-- User pill -->
+    <div class="mx-1 mb-6 px-3 py-3 rounded-xl bg-navy-800 border border-slate-700/30">
+      <div class="flex items-center gap-2.5">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-vault-blue to-blue-700 flex items-center justify-center text-xs font-display font-700 text-white flex-shrink-0">AC</div>
+        <div class="min-w-0">
+          <div class="text-white text-xs font-600 truncate">Ana Clemente</div>
+          <div class="text-slate-500 text-xs truncate">Administradora</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="space-y-1 flex-1">
+      <div class="text-xs font-mono text-slate-600 px-3 mb-2 uppercase tracking-widest">Bóveda</div>
+      <div class="nav-item active" onclick="switchSection('boveda', this)">
+        <span>🗄️</span>
+        <span>Mi Bóveda</span>
+      </div>
+
+      <div class="text-xs font-mono text-slate-600 px-3 mb-2 mt-4 uppercase tracking-widest">Seguridad</div>
+      <div class="nav-item" onclick="switchSection('rgpd', this)">
+        <span>📋</span>
+        <span>Cumplimiento RGPD</span>
+      </div>
+
+      <div class="text-xs font-mono text-slate-600 px-3 mb-2 mt-4 uppercase tracking-widest">Sistema</div>
+      <div class="nav-item" onclick="switchSection('servidor', this)">
+        <span>🖥️</span>
+        <span>Estado del Servidor</span>
+        <span class="ml-auto w-2 h-2 rounded-full bg-vault-green block" style="box-shadow: 0 0 6px #22c55e;"></span>
+      </div>
+    </nav>
+
+    <!-- Storage -->
+    <div class="mt-auto px-1">
+      <div class="bg-navy-800 rounded-xl p-4 border border-slate-700/30">
+        <div class="flex justify-between text-xs mb-2">
+          <span class="text-slate-400">Almacenamiento</span>
+          <span class="text-white font-600">380 GB / 1 TB</span>
+        </div>
+        <div class="storage-bar">
+          <div class="storage-fill"></div>
+        </div>
+        <div class="text-xs text-slate-600 mt-2">38% usado · 620 GB disponibles</div>
+      </div>
+
+      <button onclick="showPage('landing')" class="mt-3 w-full text-slate-600 hover:text-slate-400 text-xs py-2 transition-colors">
+        ← Cerrar sesión
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN AREA -->
+  <main class="flex-1 flex flex-col min-h-screen overflow-auto bg-navy-950">
+
+    <!-- TOP BAR -->
+    <header class="h-16 border-b border-slate-800/50 flex items-center justify-between px-6 bg-navy-900/50 backdrop-blur-sm flex-shrink-0">
+      <div>
+        <div class="text-white font-display font-700 text-base" id="section-title">Mi Bóveda</div>
+        <div class="text-xs text-slate-500 font-mono" id="section-breadcrumb">sv-empresa-01 / documentos</div>
+      </div>
+      <div class="flex items-center gap-3">
+        <!-- Search -->
+        <div class="relative hidden md:block">
+          <input class="vault-input text-xs py-2 pr-4 pl-9 w-48" type="text" placeholder="Buscar archivos…" />
+          <span class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs">🔍</span>
+        </div>
+        <!-- Notifications -->
+        <button class="w-9 h-9 rounded-lg bg-navy-800 border border-slate-700/30 flex items-center justify-center text-slate-400 hover:text-white hover:border-vault-blue/30 transition-all relative">
+          🔔
+          <span class="absolute -top-1 -right-1 w-4 h-4 bg-vault-blue rounded-full text-xs flex items-center justify-center text-white font-700 leading-none">2</span>
+        </button>
+        <!-- Upload button -->
+        <button onclick="openUploadModal()" class="btn-upload text-white font-display font-600 px-5 py-2.5 rounded-xl text-sm flex items-center gap-2">
+          <span>⬆</span> Subir y Cifrar Archivo
+        </button>
+      </div>
+    </header>
+
+    <!-- SECTIONS -->
+    <div class="flex-1 p-6">
+
+      <!-- ── SECTION: MI BÓVEDA ── -->
+      <div id="section-boveda" class="section-content active">
+
+        <!-- Stats row -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div class="glass rounded-xl p-4">
+            <div class="text-xs text-slate-500 mb-1">Archivos totales</div>
+            <div class="text-2xl font-display font-700 text-white">142</div>
+            <div class="text-xs text-vault-green mt-1">🔒 142 cifrados</div>
+          </div>
+          <div class="glass rounded-xl p-4">
+            <div class="text-xs text-slate-500 mb-1">Compartidos</div>
+            <div class="text-2xl font-display font-700 text-white">23</div>
+            <div class="text-xs text-slate-500 mt-1">con 4 usuarios</div>
+          </div>
+          <div class="glass rounded-xl p-4">
+            <div class="text-xs text-slate-500 mb-1">Subidos este mes</div>
+            <div class="text-2xl font-display font-700 text-white">18</div>
+            <div class="text-xs text-vault-blue mt-1">↑ 6 vs mes anterior</div>
+          </div>
+          <div class="glass rounded-xl p-4">
+            <div class="text-xs text-slate-500 mb-1">Último backup</div>
+            <div class="text-lg font-display font-700 text-white">Hoy 03:00</div>
+            <div class="text-xs text-vault-green mt-1">✓ Completado</div>
+          </div>
+        </div>
+
+        <!-- Folder breadcrumb -->
+        <div class="flex items-center gap-2 text-xs text-slate-500 mb-4 font-mono">
+          <span class="hover:text-vault-blue cursor-pointer">🏠 Raíz</span>
+          <span>/</span>
+          <span class="text-slate-300">Documentos</span>
+        </div>
+
+        <!-- Folder row -->
+        <div class="flex gap-3 mb-6 overflow-x-auto pb-2">
+          <div class="glass rounded-xl p-4 flex items-center gap-3 min-w-max cursor-pointer hover:border-vault-blue/30 transition-all">
+            <span class="text-2xl">📁</span>
+            <div>
+              <div class="text-white text-sm font-600">Nóminas</div>
+              <div class="text-slate-500 text-xs">18 archivos</div>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-4 flex items-center gap-3 min-w-max cursor-pointer hover:border-vault-blue/30 transition-all">
+            <span class="text-2xl">📋</span>
+            <div>
+              <div class="text-white text-sm font-600">Contratos</div>
+              <div class="text-slate-500 text-xs">14 archivos</div>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-4 flex items-center gap-3 min-w-max cursor-pointer hover:border-vault-blue/30 transition-all">
+            <span class="text-2xl">👥</span>
+            <div>
+              <div class="text-white text-sm font-600">Clientes</div>
+              <div class="text-slate-500 text-xs">42 archivos</div>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-4 flex items-center gap-3 min-w-max cursor-pointer hover:border-vault-blue/30 transition-all">
+            <span class="text-2xl">⚖️</span>
+            <div>
+              <div class="text-white text-sm font-600">RGPD Docs</div>
+              <div class="text-slate-500 text-xs">12 archivos</div>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-4 flex items-center gap-3 min-w-max cursor-pointer hover:border-vault-blue/30 transition-all">
+            <span class="text-2xl">📦</span>
+            <div>
+              <div class="text-white text-sm font-600">Proveedores</div>
+              <div class="text-slate-500 text-xs">8 archivos</div>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-4 flex items-center gap-3 min-w-max cursor-pointer hover:border-vault-blue/30 transition-all border-dashed">
+            <span class="text-xl text-slate-600">+</span>
+            <div class="text-slate-500 text-sm">Nueva carpeta</div>
+          </div>
+        </div>
+
+        <!-- File filters -->
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex gap-2">
+            <button class="text-xs px-3 py-1.5 rounded-lg bg-vault-blue/15 text-vault-glow border border-vault-blue/25 font-600">Todos</button>
+            <button class="text-xs px-3 py-1.5 rounded-lg text-slate-500 hover:text-slate-300 transition-colors">PDF</button>
+            <button class="text-xs px-3 py-1.5 rounded-lg text-slate-500 hover:text-slate-300 transition-colors">DOCX</button>
+            <button class="text-xs px-3 py-1.5 rounded-lg text-slate-500 hover:text-slate-300 transition-colors">XLSX</button>
+            <button class="text-xs px-3 py-1.5 rounded-lg text-slate-500 hover:text-slate-300 transition-colors">Compartidos</button>
+          </div>
+          <div class="text-xs text-slate-500">12 archivos recientes</div>
+        </div>
+
+        <!-- FILE TABLE -->
+        <div class="glass rounded-2xl overflow-hidden">
+          <table class="w-full text-sm">
+            <thead>
+              <tr class="border-b border-slate-800/60 text-left">
+                <th class="px-5 py-3.5 text-xs font-mono text-slate-500 uppercase tracking-wider font-400">
+                  <input type="checkbox" class="accent-vault-blue mr-2" />
+                  Nombre
+                </th>
+                <th class="px-4 py-3.5 text-xs font-mono text-slate-500 uppercase tracking-wider font-400 hidden md:table-cell">Tipo</th>
+                <th class="px-4 py-3.5 text-xs font-mono text-slate-500 uppercase tracking-wider font-400 hidden lg:table-cell">Tamaño</th>
+                <th class="px-4 py-3.5 text-xs font-mono text-slate-500 uppercase tracking-wider font-400 hidden lg:table-cell">Modificado</th>
+                <th class="px-4 py-3.5 text-xs font-mono text-slate-500 uppercase tracking-wider font-400">Estado</th>
+                <th class="px-4 py-3.5 text-xs font-mono text-slate-500 uppercase tracking-wider font-400">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="file-table-body">
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ── SECTION: CUMPLIMIENTO RGPD ── -->
+      <div id="section-rgpd" class="section-content">
+        <div class="mb-6">
+          <h2 class="font-display font-700 text-2xl text-white mb-1">Panel de Cumplimiento RGPD</h2>
+          <p class="text-slate-500 text-sm">Estado normativo actualizado a <span class="text-slate-400 font-mono">05 May 2025</span></p>
+        </div>
+
+        <!-- Score card -->
+        <div class="grid md:grid-cols-3 gap-4 mb-6">
+          <div class="glass rounded-xl p-6 md:col-span-1 flex flex-col items-center justify-center text-center">
+            <div class="text-5xl font-display font-700 text-vault-green">94</div>
+            <div class="text-slate-400 text-sm mt-1">Puntuación RGPD</div>
+            <div class="mt-3 w-full bg-slate-800 rounded-full h-2">
+              <div class="h-2 rounded-full bg-gradient-to-r from-vault-green to-emerald-400" style="width:94%"></div>
+            </div>
+            <div class="text-xs text-slate-500 mt-2">Excelente · Actualizado hace 3 días</div>
+          </div>
+          <div class="glass rounded-xl p-5 md:col-span-2">
+            <div class="font-display font-600 text-white mb-4">Checklist de cumplimiento</div>
+            <div class="space-y-3">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-vault-green/20 border border-vault-green/40 flex items-center justify-center text-xs text-vault-green">✓</span>
+                  <span class="text-sm text-slate-300">Cifrado de datos en reposo (Art. 32 RGPD)</span>
+                </div>
+                <span class="badge bg-vault-green/10 text-vault-green border border-vault-green/20">Conforme</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-vault-green/20 border border-vault-green/40 flex items-center justify-center text-xs text-vault-green">✓</span>
+                  <span class="text-sm text-slate-300">Registro de actividades de tratamiento (Art. 30)</span>
+                </div>
+                <span class="badge bg-vault-green/10 text-vault-green border border-vault-green/20">Conforme</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-vault-green/20 border border-vault-green/40 flex items-center justify-center text-xs text-vault-green">✓</span>
+                  <span class="text-sm text-slate-300">Política de retención y borrado de datos</span>
+                </div>
+                <span class="badge bg-vault-green/10 text-vault-green border border-vault-green/20">Conforme</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-xs text-amber-400">!</span>
+                  <span class="text-sm text-slate-300">Consentimientos de clientes actualizados</span>
+                </div>
+                <span class="badge bg-amber-500/10 text-amber-400 border border-amber-500/20">Revisar 2</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                  <span class="w-5 h-5 rounded-full bg-vault-green/20 border border-vault-green/40 flex items-center justify-center text-xs text-vault-green">✓</span>
+                  <span class="text-sm text-slate-300">Evaluación de impacto (EIPD) realizada</span>
+                </div>
+                <span class="badge bg-vault-green/10 text-vault-green border border-vault-green/20">Conforme</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Audit log -->
+        <div class="glass rounded-2xl p-6">
+          <div class="flex justify-between items-center mb-4">
+            <div class="font-display font-600 text-white">Registro de accesos (últimas 24h)</div>
+            <button class="text-xs text-vault-blue hover:underline">Exportar informe PDF</button>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center gap-4 text-xs py-2.5 border-b border-slate-800/40">
+              <span class="font-mono text-slate-500 w-32 flex-shrink-0">05/05 · 09:14</span>
+              <span class="text-vault-green">✓</span>
+              <span class="text-slate-300 flex-1">Acceso a <span class="font-mono text-slate-400">Nóminas_May2025.pdf</span></span>
+              <span class="text-slate-500">Ana Clemente</span>
+            </div>
+            <div class="flex items-center gap-4 text-xs py-2.5 border-b border-slate-800/40">
+              <span class="font-mono text-slate-500 w-32 flex-shrink-0">05/05 · 08:47</span>
+              <span class="text-vault-green">✓</span>
+              <span class="text-slate-300 flex-1">Descarga de <span class="font-mono text-slate-400">Contrato_ClienteABC.docx</span></span>
+              <span class="text-slate-500">David Ramírez</span>
+            </div>
+            <div class="flex items-center gap-4 text-xs py-2.5 border-b border-slate-800/40">
+              <span class="font-mono text-slate-500 w-32 flex-shrink-0">04/05 · 18:02</span>
+              <span class="text-amber-400">⚠</span>
+              <span class="text-slate-300 flex-1">Intento de acceso fuera de horario · Denegado</span>
+              <span class="text-slate-500">IP: 192.168.1.45</span>
+            </div>
+            <div class="flex items-center gap-4 text-xs py-2.5">
+              <span class="font-mono text-slate-500 w-32 flex-shrink-0">04/05 · 15:30</span>
+              <span class="text-vault-green">✓</span>
+              <span class="text-slate-300 flex-1">Carga de <span class="font-mono text-slate-400">RGPD_Politica_v3.pdf</span> · Cifrado AES-256</span>
+              <span class="text-slate-500">Ana Clemente</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── SECTION: ESTADO DEL SERVIDOR ── -->
+      <div id="section-servidor" class="section-content">
+        <div class="mb-6">
+          <h2 class="font-display font-700 text-2xl text-white mb-1">Estado del Servidor Local</h2>
+          <p class="text-slate-500 text-sm font-mono">sv-empresa-01 · 192.168.1.100 · Última actualización: hace 42 segundos</p>
+        </div>
+
+        <!-- Status overview -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+          <div class="glass rounded-xl p-4 border-vault-green/20 border">
+            <div class="flex items-center gap-2 mb-2">
+              <div class="status-dot"></div>
+              <div class="text-xs text-slate-500">Estado</div>
+            </div>
+            <div class="text-white font-display font-700 text-lg">Operativo</div>
+            <div class="text-xs text-slate-500 mt-1">Uptime: 127 días</div>
+          </div>
+          <div class="glass rounded-xl p-4">
+            <div class="text-xs text-slate-500 mb-2">CPU</div>
+            <div class="text-white font-display font-700 text-lg">23%</div>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 mt-2">
+              <div class="h-1.5 rounded-full bg-vault-blue" style="width:23%"></div>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-4">
+            <div class="text-xs text-slate-500 mb-2">RAM</div>
+            <div class="text-white font-display font-700 text-lg">6.2 / 16 GB</div>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 mt-2">
+              <div class="h-1.5 rounded-full bg-vault-blue" style="width:38%"></div>
+            </div>
+          </div>
+          <div class="glass rounded-xl p-4">
+            <div class="text-xs text-slate-500 mb-2">Temperatura</div>
+            <div class="text-white font-display font-700 text-lg">41 °C</div>
+            <div class="text-xs text-vault-green mt-1">✓ Rango normal</div>
+          </div>
+        </div>
+
+        <!-- Services status -->
+        <div class="glass rounded-2xl p-6 mb-4">
+          <div class="font-display font-600 text-white mb-4">Servicios del sistema</div>
+          <div class="space-y-3">
+            <div class="flex items-center justify-between py-2 border-b border-slate-800/40">
+              <div class="flex items-center gap-3">
+                <div class="status-dot"></div>
+                <span class="text-sm text-slate-300">Motor de cifrado SecureVault</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs text-slate-500">AES-256-GCM</span>
+                <span class="badge bg-vault-green/10 text-vault-green border border-vault-green/20">Activo</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-2 border-b border-slate-800/40">
+              <div class="flex items-center gap-3">
+                <div class="status-dot"></div>
+                <span class="text-sm text-slate-300">Servicio de backup automático</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs text-slate-500">03:00 diario</span>
+                <span class="badge bg-vault-green/10 text-vault-green border border-vault-green/20">Activo</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-2 border-b border-slate-800/40">
+              <div class="flex items-center gap-3">
+                <div class="status-dot"></div>
+                <span class="text-sm text-slate-300">Firewall perimetral</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs text-slate-500">147 reglas activas</span>
+                <span class="badge bg-vault-green/10 text-vault-green border border-vault-green/20">Activo</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-2 border-b border-slate-800/40">
+              <div class="flex items-center gap-3">
+                <div class="status-dot"></div>
+                <span class="text-sm text-slate-300">API local SecureVault</span>
+              </div>
+              <div class="flex items-center gap-3">
+                <span class="font-mono text-xs text-slate-500">v2.4.1</span>
+                <span class="badge bg-vault-green/10 text-vault-green border border-vault-green/20">Activo</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between py-2">
+              <div class="flex items-center gap-3">
+                <div class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0" style="box-shadow: 0 0 6px #f59e0b;"></div>
+                <span class="text-sm text-slate-300">Actualización de seguridad disponible</span>
+              </div>
+              <button class="badge bg-amber-500/10 text-amber-400 border border-amber-500/20 cursor-pointer hover:bg-amber-500/20 transition-colors">Instalar v2.5.0</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Network -->
+        <div class="glass rounded-2xl p-6">
+          <div class="font-display font-600 text-white mb-4">Información de red</div>
+          <div class="grid md:grid-cols-2 gap-4 text-sm">
+            <div>
+              <div class="text-xs text-slate-500 mb-1">IP local</div>
+              <div class="font-mono text-vault-glow">192.168.1.100</div>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500 mb-1">Hostname</div>
+              <div class="font-mono text-vault-glow">sv-empresa-01</div>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500 mb-1">Acceso externo</div>
+              <div class="text-vault-red">🚫 Bloqueado (correcto)</div>
+            </div>
+            <div>
+              <div class="text-xs text-slate-500 mb-1">VPN activa</div>
+              <div class="text-vault-green">✓ WireGuard (3 peers)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     MODALS (Include component file here or embed)
+═══════════════════════════════════════════════ -->
+<div id="upload-modal" class="modal-overlay" onclick="closeUploadModal(event)">
+  <div class="glass rounded-2xl p-8 w-full max-w-md mx-4" onclick="event.stopPropagation()">
+    <div class="flex justify-between items-center mb-6">
+      <h3 class="font-display font-700 text-white text-xl">Subir y Cifrar Archivo</h3>
+      <button onclick="closeUploadModal()" class="text-slate-500 hover:text-white transition-colors text-xl">✕</button>
+    </div>
+
+    <!-- Drop zone -->
+    <div class="border-2 border-dashed border-vault-blue/30 rounded-xl p-10 text-center hover:border-vault-blue/60 transition-colors cursor-pointer mb-5" onclick="simulateUpload()">
+      <div class="text-4xl mb-3">📁</div>
+      <div class="text-white font-600 mb-1">Arrastra tu archivo aquí</div>
+      <div class="text-slate-500 text-sm">o haz clic para seleccionar</div>
+      <div class="text-xs text-slate-600 mt-3">PDF, DOCX, XLSX, JPG, PNG · Máx. 500 MB</div>
+    </div>
+
+    <!-- Encrypt options -->
+    <div class="space-y-3 mb-6">
+      <div class="flex items-center justify-between p-3 bg-navy-900 rounded-xl border border-slate-700/30">
+        <div>
+          <div class="text-sm text-white font-600">Cifrar con mi clave personal</div>
+          <div class="text-xs text-slate-500">Solo tú podrás descifrar este archivo</div>
+        </div>
+        <input type="radio" name="encrypt-type" checked class="accent-vault-blue" />
+      </div>
+      <div class="flex items-center justify-between p-3 bg-navy-900 rounded-xl border border-slate-700/30">
+        <div>
+          <div class="text-sm text-white font-600">Clave compartida del equipo</div>
+          <div class="text-xs text-slate-500">Accesible para los usuarios del grupo</div>
+        </div>
+        <input type="radio" name="encrypt-type" class="accent-vault-blue" />
+      </div>
+    </div>
+
+    <!-- Destination -->
+    <div class="mb-6">
+      <label class="text-xs text-slate-400 block mb-2">Carpeta destino</label>
+      <select class="vault-input">
+        <option>📁 Nóminas</option>
+        <option>📁 Contratos</option>
+        <option>📁 Clientes</option>
+        <option>📁 RGPD Docs</option>
+      </select>
+    </div>
+
+    <div id="upload-progress" class="hidden mb-5">
+      <div class="flex justify-between text-xs text-slate-400 mb-2">
+        <span>Cifrando y subiendo…</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="w-full bg-slate-800 rounded-full h-2">
+        <div id="progress-bar" class="h-2 rounded-full bg-gradient-to-r from-vault-blue to-vault-glow transition-all duration-300" style="width:0%"></div>
+      </div>
+      <div class="text-xs text-slate-600 mt-2 font-mono">AES-256-GCM · Cifrado local · Sin envío externo</div>
+    </div>
+
+    <button onclick="simulateUpload()" class="btn-upload w-full text-white font-display font-700 py-3.5 rounded-xl text-sm">
+      🔒 Cifrar y subir
+    </button>
+  </div>
+</div>
+
+<!-- CONTACT SUCCESS MODAL -->
+<div id="contact-modal" class="modal-overlay" onclick="closeContactModal(event)">
+  <div class="glass rounded-2xl p-10 w-full max-w-sm mx-4 text-center" onclick="event.stopPropagation()">
+    <div class="text-5xl mb-4">✅</div>
+    <h3 class="font-display font-700 text-white text-xl mb-2">¡Mensaje enviado!</h3>
+    <p class="text-slate-400 text-sm mb-6">Nos pondremos en contacto contigo en menos de 24 horas laborables. Gracias por tu interés en SecureVault.</p>
+    <button onclick="closeContactModal()" class="btn-glow w-full text-white font-display font-700 py-3 rounded-xl text-sm">Cerrar</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════
+     JAVASCRIPT MODULES
+═══════════════════════════════════════════════ -->
+<script src="js/file-manager.js"></script>
+<script src="js/animations.js"></script>
+<script src="js/modals.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
